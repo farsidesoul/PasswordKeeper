@@ -230,7 +230,7 @@ namespace PasswordKeeper
             return str.Substring(random.Next(0, str.Length - 1), 1);
         }
 
-        // REturn a random permutation of a string
+        // Return a random permutation of a string
         private string RandomiseString(string str)
         {
             string result = "";

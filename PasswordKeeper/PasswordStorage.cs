@@ -16,6 +16,11 @@ namespace PasswordKeeper
             InitializeComponent();
         }
 
+        public PasswordStorageForm(string website, string password)
+        {
+
+        }
+
         private void passwordGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == 3) // Copy button in DataGridView
