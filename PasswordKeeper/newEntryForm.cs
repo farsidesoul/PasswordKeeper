@@ -207,8 +207,15 @@ namespace PasswordKeeper
                 password += RandomChar(other);
 
             // Add the remaining characters randomly
-            while (password.Length < passwordLength)
-                password += allowed.Substring(random.Next(0, allowed.Length - 1), 1);
+            try
+            {
+                while (password.Length < passwordLength)
+                    password += allowed.Substring(random.Next(0, allowed.Length - 1), 1);
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Error. You must select at least on type of character for your password.");
+            }
 
             // Randomise (to mix the required characters from front of string)
             password = RandomiseString(password);
@@ -240,6 +247,11 @@ namespace PasswordKeeper
         private void okButton_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         
