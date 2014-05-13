@@ -1,6 +1,6 @@
 ﻿namespace PasswordKeeper
 {
-    partial class Form1
+    partial class NewEntryForm
     {
         /// <summary>
         /// Required designer variable.
@@ -63,12 +63,15 @@
             this.okButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.seperatorLabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.siteLabel = new System.Windows.Forms.Label();
+            this.siteTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // allowLowercaseCheckBox
             // 
             this.allowLowercaseCheckBox.AutoSize = true;
-            this.allowLowercaseCheckBox.Location = new System.Drawing.Point(155, 25);
+            this.allowLowercaseCheckBox.Location = new System.Drawing.Point(154, 67);
             this.allowLowercaseCheckBox.Name = "allowLowercaseCheckBox";
             this.allowLowercaseCheckBox.Size = new System.Drawing.Size(15, 14);
             this.allowLowercaseCheckBox.TabIndex = 0;
@@ -78,7 +81,7 @@
             // allowedLabel
             // 
             this.allowedLabel.AutoSize = true;
-            this.allowedLabel.Location = new System.Drawing.Point(141, 9);
+            this.allowedLabel.Location = new System.Drawing.Point(140, 51);
             this.allowedLabel.Name = "allowedLabel";
             this.allowedLabel.Size = new System.Drawing.Size(44, 13);
             this.allowedLabel.TabIndex = 1;
@@ -87,7 +90,7 @@
             // requiredLabel
             // 
             this.requiredLabel.AutoSize = true;
-            this.requiredLabel.Location = new System.Drawing.Point(206, 9);
+            this.requiredLabel.Location = new System.Drawing.Point(205, 51);
             this.requiredLabel.Name = "requiredLabel";
             this.requiredLabel.Size = new System.Drawing.Size(50, 13);
             this.requiredLabel.TabIndex = 2;
@@ -96,7 +99,7 @@
             // allowUppercaseCheckBox
             // 
             this.allowUppercaseCheckBox.AutoSize = true;
-            this.allowUppercaseCheckBox.Location = new System.Drawing.Point(155, 45);
+            this.allowUppercaseCheckBox.Location = new System.Drawing.Point(154, 87);
             this.allowUppercaseCheckBox.Name = "allowUppercaseCheckBox";
             this.allowUppercaseCheckBox.Size = new System.Drawing.Size(15, 14);
             this.allowUppercaseCheckBox.TabIndex = 3;
@@ -106,7 +109,7 @@
             // allowNumbersCheckBox
             // 
             this.allowNumbersCheckBox.AutoSize = true;
-            this.allowNumbersCheckBox.Location = new System.Drawing.Point(155, 65);
+            this.allowNumbersCheckBox.Location = new System.Drawing.Point(154, 107);
             this.allowNumbersCheckBox.Name = "allowNumbersCheckBox";
             this.allowNumbersCheckBox.Size = new System.Drawing.Size(15, 14);
             this.allowNumbersCheckBox.TabIndex = 4;
@@ -116,7 +119,7 @@
             // allowSpecialCharsCheckBox
             // 
             this.allowSpecialCharsCheckBox.AutoSize = true;
-            this.allowSpecialCharsCheckBox.Location = new System.Drawing.Point(155, 85);
+            this.allowSpecialCharsCheckBox.Location = new System.Drawing.Point(154, 127);
             this.allowSpecialCharsCheckBox.Name = "allowSpecialCharsCheckBox";
             this.allowSpecialCharsCheckBox.Size = new System.Drawing.Size(15, 14);
             this.allowSpecialCharsCheckBox.TabIndex = 5;
@@ -126,7 +129,7 @@
             // allowUnderscoreCheckBox
             // 
             this.allowUnderscoreCheckBox.AutoSize = true;
-            this.allowUnderscoreCheckBox.Location = new System.Drawing.Point(155, 105);
+            this.allowUnderscoreCheckBox.Location = new System.Drawing.Point(154, 147);
             this.allowUnderscoreCheckBox.Name = "allowUnderscoreCheckBox";
             this.allowUnderscoreCheckBox.Size = new System.Drawing.Size(15, 14);
             this.allowUnderscoreCheckBox.TabIndex = 6;
@@ -136,7 +139,7 @@
             // allowSpaceCheckBox
             // 
             this.allowSpaceCheckBox.AutoSize = true;
-            this.allowSpaceCheckBox.Location = new System.Drawing.Point(155, 125);
+            this.allowSpaceCheckBox.Location = new System.Drawing.Point(154, 167);
             this.allowSpaceCheckBox.Name = "allowSpaceCheckBox";
             this.allowSpaceCheckBox.Size = new System.Drawing.Size(15, 14);
             this.allowSpaceCheckBox.TabIndex = 7;
@@ -146,7 +149,7 @@
             // allowOthersCheckBox
             // 
             this.allowOthersCheckBox.AutoSize = true;
-            this.allowOthersCheckBox.Location = new System.Drawing.Point(155, 145);
+            this.allowOthersCheckBox.Location = new System.Drawing.Point(154, 187);
             this.allowOthersCheckBox.Name = "allowOthersCheckBox";
             this.allowOthersCheckBox.Size = new System.Drawing.Size(15, 14);
             this.allowOthersCheckBox.TabIndex = 8;
@@ -156,7 +159,7 @@
             // requireOthersCheckBox
             // 
             this.requireOthersCheckBox.AutoSize = true;
-            this.requireOthersCheckBox.Location = new System.Drawing.Point(223, 145);
+            this.requireOthersCheckBox.Location = new System.Drawing.Point(222, 187);
             this.requireOthersCheckBox.Name = "requireOthersCheckBox";
             this.requireOthersCheckBox.Size = new System.Drawing.Size(15, 14);
             this.requireOthersCheckBox.TabIndex = 15;
@@ -166,7 +169,7 @@
             // requireSpaceCheckBox
             // 
             this.requireSpaceCheckBox.AutoSize = true;
-            this.requireSpaceCheckBox.Location = new System.Drawing.Point(223, 125);
+            this.requireSpaceCheckBox.Location = new System.Drawing.Point(222, 167);
             this.requireSpaceCheckBox.Name = "requireSpaceCheckBox";
             this.requireSpaceCheckBox.Size = new System.Drawing.Size(15, 14);
             this.requireSpaceCheckBox.TabIndex = 14;
@@ -176,7 +179,7 @@
             // requireUnderscoreCheckBox
             // 
             this.requireUnderscoreCheckBox.AutoSize = true;
-            this.requireUnderscoreCheckBox.Location = new System.Drawing.Point(223, 105);
+            this.requireUnderscoreCheckBox.Location = new System.Drawing.Point(222, 147);
             this.requireUnderscoreCheckBox.Name = "requireUnderscoreCheckBox";
             this.requireUnderscoreCheckBox.Size = new System.Drawing.Size(15, 14);
             this.requireUnderscoreCheckBox.TabIndex = 13;
@@ -186,7 +189,7 @@
             // requireSpecialCharsCheckBox
             // 
             this.requireSpecialCharsCheckBox.AutoSize = true;
-            this.requireSpecialCharsCheckBox.Location = new System.Drawing.Point(223, 85);
+            this.requireSpecialCharsCheckBox.Location = new System.Drawing.Point(222, 127);
             this.requireSpecialCharsCheckBox.Name = "requireSpecialCharsCheckBox";
             this.requireSpecialCharsCheckBox.Size = new System.Drawing.Size(15, 14);
             this.requireSpecialCharsCheckBox.TabIndex = 12;
@@ -196,7 +199,7 @@
             // requireNumbersCheckBox
             // 
             this.requireNumbersCheckBox.AutoSize = true;
-            this.requireNumbersCheckBox.Location = new System.Drawing.Point(223, 65);
+            this.requireNumbersCheckBox.Location = new System.Drawing.Point(222, 107);
             this.requireNumbersCheckBox.Name = "requireNumbersCheckBox";
             this.requireNumbersCheckBox.Size = new System.Drawing.Size(15, 14);
             this.requireNumbersCheckBox.TabIndex = 11;
@@ -206,7 +209,7 @@
             // requireUppercaseCheckBox
             // 
             this.requireUppercaseCheckBox.AutoSize = true;
-            this.requireUppercaseCheckBox.Location = new System.Drawing.Point(223, 45);
+            this.requireUppercaseCheckBox.Location = new System.Drawing.Point(222, 87);
             this.requireUppercaseCheckBox.Name = "requireUppercaseCheckBox";
             this.requireUppercaseCheckBox.Size = new System.Drawing.Size(15, 14);
             this.requireUppercaseCheckBox.TabIndex = 10;
@@ -216,7 +219,7 @@
             // requireLowercaseCheckBox
             // 
             this.requireLowercaseCheckBox.AutoSize = true;
-            this.requireLowercaseCheckBox.Location = new System.Drawing.Point(223, 25);
+            this.requireLowercaseCheckBox.Location = new System.Drawing.Point(222, 67);
             this.requireLowercaseCheckBox.Name = "requireLowercaseCheckBox";
             this.requireLowercaseCheckBox.Size = new System.Drawing.Size(15, 14);
             this.requireLowercaseCheckBox.TabIndex = 9;
@@ -226,7 +229,7 @@
             // minLengthLabel
             // 
             this.minLengthLabel.AutoSize = true;
-            this.minLengthLabel.Location = new System.Drawing.Point(281, 26);
+            this.minLengthLabel.Location = new System.Drawing.Point(280, 68);
             this.minLengthLabel.Name = "minLengthLabel";
             this.minLengthLabel.Size = new System.Drawing.Size(66, 13);
             this.minLengthLabel.TabIndex = 16;
@@ -235,7 +238,7 @@
             // maxLengthLabel
             // 
             this.maxLengthLabel.AutoSize = true;
-            this.maxLengthLabel.Location = new System.Drawing.Point(281, 45);
+            this.maxLengthLabel.Location = new System.Drawing.Point(280, 87);
             this.maxLengthLabel.Name = "maxLengthLabel";
             this.maxLengthLabel.Size = new System.Drawing.Size(69, 13);
             this.maxLengthLabel.TabIndex = 17;
@@ -244,7 +247,7 @@
             // charactersLabel
             // 
             this.charactersLabel.AutoSize = true;
-            this.charactersLabel.Location = new System.Drawing.Point(12, 9);
+            this.charactersLabel.Location = new System.Drawing.Point(11, 51);
             this.charactersLabel.Name = "charactersLabel";
             this.charactersLabel.Size = new System.Drawing.Size(61, 13);
             this.charactersLabel.TabIndex = 18;
@@ -253,7 +256,7 @@
             // lowercaseLabel
             // 
             this.lowercaseLabel.AutoSize = true;
-            this.lowercaseLabel.Location = new System.Drawing.Point(12, 26);
+            this.lowercaseLabel.Location = new System.Drawing.Point(11, 68);
             this.lowercaseLabel.Name = "lowercaseLabel";
             this.lowercaseLabel.Size = new System.Drawing.Size(86, 13);
             this.lowercaseLabel.TabIndex = 19;
@@ -262,7 +265,7 @@
             // uppercaseLabel
             // 
             this.uppercaseLabel.AutoSize = true;
-            this.uppercaseLabel.Location = new System.Drawing.Point(12, 46);
+            this.uppercaseLabel.Location = new System.Drawing.Point(11, 88);
             this.uppercaseLabel.Name = "uppercaseLabel";
             this.uppercaseLabel.Size = new System.Drawing.Size(89, 13);
             this.uppercaseLabel.TabIndex = 20;
@@ -271,7 +274,7 @@
             // numbersLabel
             // 
             this.numbersLabel.AutoSize = true;
-            this.numbersLabel.Location = new System.Drawing.Point(12, 66);
+            this.numbersLabel.Location = new System.Drawing.Point(11, 108);
             this.numbersLabel.Name = "numbersLabel";
             this.numbersLabel.Size = new System.Drawing.Size(76, 13);
             this.numbersLabel.TabIndex = 21;
@@ -280,7 +283,7 @@
             // specialLabel
             // 
             this.specialLabel.AutoSize = true;
-            this.specialLabel.Location = new System.Drawing.Point(12, 86);
+            this.specialLabel.Location = new System.Drawing.Point(11, 128);
             this.specialLabel.Name = "specialLabel";
             this.specialLabel.Size = new System.Drawing.Size(88, 13);
             this.specialLabel.TabIndex = 22;
@@ -289,7 +292,7 @@
             // underscoreLabel
             // 
             this.underscoreLabel.AutoSize = true;
-            this.underscoreLabel.Location = new System.Drawing.Point(12, 106);
+            this.underscoreLabel.Location = new System.Drawing.Point(11, 148);
             this.underscoreLabel.Name = "underscoreLabel";
             this.underscoreLabel.Size = new System.Drawing.Size(77, 13);
             this.underscoreLabel.TabIndex = 23;
@@ -298,7 +301,7 @@
             // spaceLabel
             // 
             this.spaceLabel.AutoSize = true;
-            this.spaceLabel.Location = new System.Drawing.Point(12, 126);
+            this.spaceLabel.Location = new System.Drawing.Point(11, 168);
             this.spaceLabel.Name = "spaceLabel";
             this.spaceLabel.Size = new System.Drawing.Size(50, 13);
             this.spaceLabel.TabIndex = 24;
@@ -307,7 +310,7 @@
             // otherCharsLabel
             // 
             this.otherCharsLabel.AutoSize = true;
-            this.otherCharsLabel.Location = new System.Drawing.Point(12, 146);
+            this.otherCharsLabel.Location = new System.Drawing.Point(11, 188);
             this.otherCharsLabel.Name = "otherCharsLabel";
             this.otherCharsLabel.Size = new System.Drawing.Size(36, 13);
             this.otherCharsLabel.TabIndex = 25;
@@ -315,7 +318,7 @@
             // 
             // otherCharsTextBox
             // 
-            this.otherCharsTextBox.Location = new System.Drawing.Point(49, 142);
+            this.otherCharsTextBox.Location = new System.Drawing.Point(48, 184);
             this.otherCharsTextBox.Name = "otherCharsTextBox";
             this.otherCharsTextBox.Size = new System.Drawing.Size(100, 20);
             this.otherCharsTextBox.TabIndex = 26;
@@ -323,7 +326,7 @@
             // passwordLabel
             // 
             this.passwordLabel.AutoSize = true;
-            this.passwordLabel.Location = new System.Drawing.Point(12, 192);
+            this.passwordLabel.Location = new System.Drawing.Point(11, 234);
             this.passwordLabel.Name = "passwordLabel";
             this.passwordLabel.Size = new System.Drawing.Size(56, 13);
             this.passwordLabel.TabIndex = 27;
@@ -331,28 +334,30 @@
             // 
             // passwordTextBox
             // 
-            this.passwordTextBox.Location = new System.Drawing.Point(70, 189);
+            this.passwordTextBox.Location = new System.Drawing.Point(69, 231);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(186, 20);
             this.passwordTextBox.TabIndex = 28;
             // 
             // minLengthTextBox
             // 
-            this.minLengthTextBox.Location = new System.Drawing.Point(353, 22);
+            this.minLengthTextBox.Location = new System.Drawing.Point(352, 64);
             this.minLengthTextBox.Name = "minLengthTextBox";
             this.minLengthTextBox.Size = new System.Drawing.Size(36, 20);
             this.minLengthTextBox.TabIndex = 29;
+            this.minLengthTextBox.Text = "8";
             // 
             // maxLengthTextBox
             // 
-            this.maxLengthTextBox.Location = new System.Drawing.Point(353, 43);
+            this.maxLengthTextBox.Location = new System.Drawing.Point(352, 85);
             this.maxLengthTextBox.Name = "maxLengthTextBox";
             this.maxLengthTextBox.Size = new System.Drawing.Size(36, 20);
             this.maxLengthTextBox.TabIndex = 30;
+            this.maxLengthTextBox.Text = "16";
             // 
             // generatePasswordButton
             // 
-            this.generatePasswordButton.Location = new System.Drawing.Point(284, 187);
+            this.generatePasswordButton.Location = new System.Drawing.Point(283, 229);
             this.generatePasswordButton.Name = "generatePasswordButton";
             this.generatePasswordButton.Size = new System.Drawing.Size(75, 23);
             this.generatePasswordButton.TabIndex = 31;
@@ -362,7 +367,7 @@
             // 
             // okButton
             // 
-            this.okButton.Location = new System.Drawing.Point(232, 225);
+            this.okButton.Location = new System.Drawing.Point(231, 267);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(75, 23);
             this.okButton.TabIndex = 32;
@@ -372,7 +377,7 @@
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(313, 225);
+            this.cancelButton.Location = new System.Drawing.Point(312, 267);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 33;
@@ -382,16 +387,44 @@
             // seperatorLabel
             // 
             this.seperatorLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.seperatorLabel.Location = new System.Drawing.Point(0, 220);
+            this.seperatorLabel.Location = new System.Drawing.Point(-1, 262);
             this.seperatorLabel.Name = "seperatorLabel";
             this.seperatorLabel.Size = new System.Drawing.Size(402, 2);
             this.seperatorLabel.TabIndex = 34;
             // 
-            // Form1
+            // label1
+            // 
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label1.Location = new System.Drawing.Point(-1, 40);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(402, 2);
+            this.label1.TabIndex = 35;
+            // 
+            // siteLabel
+            // 
+            this.siteLabel.AutoSize = true;
+            this.siteLabel.Location = new System.Drawing.Point(11, 15);
+            this.siteLabel.Name = "siteLabel";
+            this.siteLabel.Size = new System.Drawing.Size(28, 13);
+            this.siteLabel.TabIndex = 36;
+            this.siteLabel.Text = "Site:";
+            // 
+            // siteTextBox
+            // 
+            this.siteTextBox.Location = new System.Drawing.Point(45, 12);
+            this.siteTextBox.Name = "siteTextBox";
+            this.siteTextBox.Size = new System.Drawing.Size(343, 20);
+            this.siteTextBox.TabIndex = 37;
+            this.siteTextBox.Text = "http://";
+            // 
+            // NewEntryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(400, 254);
+            this.ClientSize = new System.Drawing.Size(400, 296);
+            this.Controls.Add(this.siteTextBox);
+            this.Controls.Add(this.siteLabel);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.seperatorLabel);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.okButton);
@@ -428,7 +461,7 @@
             this.Controls.Add(this.allowedLabel);
             this.Controls.Add(this.allowLowercaseCheckBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Form1";
+            this.Name = "NewEntryForm";
             this.Text = "New Password";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -472,6 +505,9 @@
         private System.Windows.Forms.Button okButton;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Label seperatorLabel;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label siteLabel;
+        private System.Windows.Forms.TextBox siteTextBox;
     }
 }
 

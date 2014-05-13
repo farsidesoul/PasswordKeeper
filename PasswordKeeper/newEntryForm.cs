@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace PasswordKeeper
 {
-    public partial class Form1 : Form
+    public partial class NewEntryForm : Form
     {
         // Allows movement of boarderless window.
         protected override void OnLoad(EventArgs e)
@@ -49,7 +49,7 @@ namespace PasswordKeeper
         Random random = new Random();
 
         // Code based on code created by Sajjad Gull @CSharpens
-        public Form1()
+        public NewEntryForm()
         {
             InitializeComponent();
         }
@@ -164,9 +164,30 @@ namespace PasswordKeeper
             if (allowOthersCheckBox.Checked) allowed += other;
 
             // Pick the numbers of characters in the password
-            int min_chars = int.Parse(minLengthTextBox.Text);
-            int max_chars = int.Parse(maxLengthTextBox.Text);
+            int min_chars = 0;
+            int max_chars = 0;
+            try
+            {
+                min_chars = int.Parse(minLengthTextBox.Text);
+            }
+            catch (FormatException)
+            {
+                min_chars = 8;
+            }
+            try
+            {
+                max_chars = int.Parse(maxLengthTextBox.Text);
+            }
+            catch (FormatException)
+            {
+                max_chars = 16;
+            }
+            
+            
             int passwordLength = random.Next(min_chars, max_chars);
+            
+            
+            
 
             // Ensure the password satisfies requirements
             string password = "";
