@@ -54,6 +54,13 @@ namespace PasswordKeeper
             InitializeComponent();
         }
 
+        public NewEntryForm(string site, string pass)
+        {
+            InitializeComponent();
+            siteTextBox.Text = site;
+            passwordTextBox.Text = pass;
+        }
+
         private void allowLowerCaseCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             if (!allowLowercaseCheckBox.Checked) requireLowercaseCheckBox.Checked = false;
@@ -127,14 +134,14 @@ namespace PasswordKeeper
         // Generate new Password
         private void generatePasswordButton_Click(object sender, EventArgs e)
         {
-            //try
-            //{
+            try
+            {
                 passwordTextBox.Text = RandomPassword();
-           // }
-            //catch (Exception ex)
-           // {
-              //  MessageBox.Show(ex.Message);
-           // }
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                noCharacterTypeSelectedError();
+            }
         }
 
         // Generate a password that meets the checked requirements
@@ -147,8 +154,7 @@ namespace PasswordKeeper
             string other = otherCharsTextBox.Text;
             if (requireOthersCheckBox.Checked && (other.Length < 1))
             {
-                MessageBox.Show("You must specify other characters to be used.", "Error", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                noCharacterTypeSelectedError();
                 otherCharsTextBox.Focus();
                 return passwordTextBox.Text;
             }
@@ -239,7 +245,20 @@ namespace PasswordKeeper
 
         private void okButton_Click(object sender, EventArgs e)
         {
+            PasswordList.site = siteTextBox.Text;
+            PasswordList.pass = passwordTextBox.Text;
+            this.Close();
+        }
 
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        public void noCharacterTypeSelectedError()
+        {
+            MessageBox.Show("You must specify at least one type of character to be used.", "Error", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
         }
 
         

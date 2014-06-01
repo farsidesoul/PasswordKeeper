@@ -15,7 +15,7 @@ namespace PasswordKeeper
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new PasswordStorageForm());
+            Application.Run(new PasswordList());
         }
     }
 }
