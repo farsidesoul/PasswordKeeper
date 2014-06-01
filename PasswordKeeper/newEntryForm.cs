@@ -267,12 +267,6 @@ namespace PasswordKeeper
             MessageBox.Show("You must specify at least one type of character to be used.", "Error", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
         }
-
-        private void cancelButton_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         
 
     }
