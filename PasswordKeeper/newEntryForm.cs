@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
 using System.Windows.Forms;
 
 namespace PasswordKeeper
@@ -46,7 +40,7 @@ namespace PasswordKeeper
         public Point DownPoint = Point.Empty;
         // End window movement code.
 
-        Random random = new Random();
+        readonly Random _random = new Random();
 
         // Code based on code created by Sajjad Gull @CSharpens
         public NewEntryForm()
@@ -138,73 +132,73 @@ namespace PasswordKeeper
             {
                 passwordTextBox.Text = RandomPassword();
             }
-            catch (ArgumentOutOfRangeException ex)
+            catch (ArgumentOutOfRangeException)
             {
-                noCharacterTypeSelectedError();
+                NoCharacterTypeSelectedError();
             }
         }
 
         // Generate a password that meets the checked requirements
         private string RandomPassword()
         {
-            const string LOWER = "abcdefghijklmnopqrstuvwxyz";
-            const string UPPER = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-            const string NUMBERS = "0123456789";
-            const string SPECIAL = @"~!@#$%^&*():;[]{}<>,.?/\|";
+            const string lower = "abcdefghijklmnopqrstuvwxyz";
+            const string upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            const string numbers = "0123456789";
+            const string special = @"~!@#$%^&*():;[]{}<>,.?/\|";
             string other = otherCharsTextBox.Text;
             if (requireOthersCheckBox.Checked && (other.Length < 1))
             {
-                noCharacterTypeSelectedError();
+                NoCharacterTypeSelectedError();
                 otherCharsTextBox.Focus();
                 return passwordTextBox.Text;
             }
 
             // Make a list of allowed characters
             string allowed = "";
-            if (allowLowercaseCheckBox.Checked) allowed += LOWER;
-            if (allowUppercaseCheckBox.Checked) allowed += UPPER;
-            if (allowNumbersCheckBox.Checked) allowed += NUMBERS;
-            if (allowSpecialCharsCheckBox.Checked) allowed += SPECIAL;
+            if (allowLowercaseCheckBox.Checked) allowed += lower;
+            if (allowUppercaseCheckBox.Checked) allowed += upper;
+            if (allowNumbersCheckBox.Checked) allowed += numbers;
+            if (allowSpecialCharsCheckBox.Checked) allowed += special;
             if (allowSpaceCheckBox.Checked) allowed += " ";
             if (allowUnderscoreCheckBox.Checked) allowed += "_";
             if (allowOthersCheckBox.Checked) allowed += other;
 
             // Pick the numbers of characters in the password
-            int min_chars = 0;
-            int max_chars = 0;
+            int minChars;
+            int maxChars;
             try
             {
-                min_chars = int.Parse(minLengthTextBox.Text);
+                minChars = int.Parse(minLengthTextBox.Text);
             }
             catch (FormatException)
             {
-                min_chars = 8;
+                minChars = 8;
             }
             try
             {
-                max_chars = int.Parse(maxLengthTextBox.Text);
+                maxChars = int.Parse(maxLengthTextBox.Text);
             }
             catch (FormatException)
             {
-                max_chars = 16;
+                maxChars = 16;
             }
             
             
-            int passwordLength = random.Next(min_chars, max_chars);
+            int passwordLength = _random.Next(minChars, maxChars);
             
             
             
 
             // Ensure the password satisfies requirements
             string password = "";
-            if (requireLowercaseCheckBox.Checked && (password.IndexOfAny(LOWER.ToCharArray()) == -1))
-                password += RandomChar(LOWER);
-            if (requireUppercaseCheckBox.Checked && (password.IndexOfAny(UPPER.ToCharArray()) == -1))
-                password += RandomChar(UPPER);
-            if (requireNumbersCheckBox.Checked && (password.IndexOfAny(NUMBERS.ToCharArray()) == -1))
-                password += RandomChar(NUMBERS);
-            if (requireSpecialCharsCheckBox.Checked && (password.IndexOfAny(SPECIAL.ToCharArray()) == -1))
-                password += RandomChar(SPECIAL);
+            if (requireLowercaseCheckBox.Checked && (password.IndexOfAny(lower.ToCharArray()) == -1))
+                password += RandomChar(lower);
+            if (requireUppercaseCheckBox.Checked && (password.IndexOfAny(upper.ToCharArray()) == -1))
+                password += RandomChar(upper);
+            if (requireNumbersCheckBox.Checked && (password.IndexOfAny(numbers.ToCharArray()) == -1))
+                password += RandomChar(numbers);
+            if (requireSpecialCharsCheckBox.Checked && (password.IndexOfAny(special.ToCharArray()) == -1))
+                password += RandomChar(special);
             if (requireSpaceCheckBox.Checked && (password.IndexOfAny(" ".ToCharArray()) == -1))
                 password += " ";
             if (requireUnderscoreCheckBox.Checked && (password.IndexOfAny("_".ToCharArray()) == -1))
@@ -216,11 +210,11 @@ namespace PasswordKeeper
             try
             {
                 while (password.Length < passwordLength)
-                    password += allowed.Substring(random.Next(0, allowed.Length - 1), 1);
+                    password += allowed.Substring(_random.Next(0, allowed.Length - 1), 1);
             }
             catch (ArgumentOutOfRangeException)
             {
-                MessageBox.Show("Error. You must select at least on type of character for your password.");
+                NoCharacterTypeSelectedError();
             }
 
             // Randomise (to mix the required characters from front of string)
@@ -233,7 +227,7 @@ namespace PasswordKeeper
         // Return a random character from a string
         private string RandomChar(string str)
         {
-            return str.Substring(random.Next(0, str.Length - 1), 1);
+            return str.Substring(_random.Next(0, str.Length - 1), 1);
         }
 
         // Return a random permutation of a string
@@ -243,7 +237,7 @@ namespace PasswordKeeper
             while (str.Length > 0)
             {
                 // Pick a random character.
-                int i = random.Next(0, str.Length - 1);
+                int i = _random.Next(0, str.Length - 1);
                 result += str.Substring(i, 1);
                 str = str.Remove(i, 1);
             }
@@ -254,17 +248,17 @@ namespace PasswordKeeper
         {
             PasswordList.site = siteTextBox.Text;
             PasswordList.pass = passwordTextBox.Text;
-            this.Close();
+            Close();
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
-        public void noCharacterTypeSelectedError()
+        public void NoCharacterTypeSelectedError()
         {
-            MessageBox.Show("You must specify at least one type of character to be used.", "Error", MessageBoxButtons.OK,
+            MessageBox.Show(@"You must specify at least one type of character to be used.", @"Error", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
         }
         

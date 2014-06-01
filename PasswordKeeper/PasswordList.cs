@@ -13,7 +13,7 @@ namespace PasswordKeeper
         public PasswordList()
         {
             InitializeComponent();
-            loadListViewItems(FileLocation, passwordListView);
+            LoadListViewItems(FileLocation, passwordListView);
         }
 
         public static string site, pass;
@@ -36,7 +36,7 @@ namespace PasswordKeeper
 
         private void editButton_Click(object sender, EventArgs e)
         {
-            saveListViewItems(FileLocation, passwordListView);
+            SaveListViewItems(FileLocation, passwordListView);
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
@@ -45,7 +45,7 @@ namespace PasswordKeeper
             // If user doesn't wish to delete items, do nothing
             if (deleteItems != DialogResult.Yes)
             {
-                return;
+                //Do nothing and return.
             }
             else // delete all selected items.
             {
@@ -56,7 +56,7 @@ namespace PasswordKeeper
             }
         }
 
-        private void saveListViewItems(string path, ListView lv)
+        private static void SaveListViewItems(string path, ListView lv)
         {
             var delimeteredListViewData = new List<string>();
 
@@ -73,16 +73,16 @@ namespace PasswordKeeper
             File.WriteAllLines(path, delimeteredListViewData.ToArray());
         }
 
-        private void loadListViewItems(string path, ListView lv)
+        private static void LoadListViewItems(string path, ListView lv)
         {
             try
             {
                 foreach (string line in File.ReadAllLines(path))
                 {
-                    lv.Items.Add(new ListViewItem(line.Split(new char[] { '#' }, StringSplitOptions.RemoveEmptyEntries)));
+                    lv.Items.Add(new ListViewItem(line.Split(new[] { '#' }, StringSplitOptions.RemoveEmptyEntries)));
                 }
             }
-            catch (FileNotFoundException ex)
+            catch (FileNotFoundException)
             {
                 // Don't worry about it.
             }
